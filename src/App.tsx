@@ -16,10 +16,17 @@ function App() {
   ];
 
   const countryHeading = "Country List";
+  const onSelectedCountry = (country: string) => {
+    console.log(country);
+  };
 
   return (
     <div>
-      <ListGroup countries={countries} heading={countryHeading} />
+      <ListGroup
+        countries={countries}
+        heading={countryHeading}
+        onSelectedCountry={onSelectedCountry}
+      />
     </div>
   );
 }
