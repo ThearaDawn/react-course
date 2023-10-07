@@ -1,3 +1,5 @@
+import { MouseEvent } from "react";
+
 function ListGroup() {
   let countries = [
     "Cambodia",
@@ -13,18 +15,21 @@ function ListGroup() {
     "East Timor",
   ];
 
-  countries = [];
-
+  const handleClick = (event: MouseEvent) => console.log(event.target);
   return (
     <>
       <h1>Country List</h1>
       {countries.length === 0 && <p>No Country Found</p>}
       <ul className="list-group">
-        {countries.map((country, index) => (
-          <li className="list-group-item" key={index}>
-            {country}
-          </li>
-        ))}
+        {countries.map(
+          (
+            country // <-- map() is a function that returns an array
+          ) => (
+            <li className="list-group-item" key={country} onClick={handleClick}>
+              {country}
+            </li>
+          )
+        )}
       </ul>
     </>
   );
