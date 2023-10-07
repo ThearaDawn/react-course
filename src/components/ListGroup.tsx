@@ -1,18 +1,29 @@
-import { Fragment } from "react";
-
 function ListGroup() {
+  const countries = [
+    "Cambodia",
+    "Thailand",
+    "Vietnam",
+    "Laos",
+    "Myanmar",
+    "Malaysia",
+    "Singapore",
+    "Indonesia",
+    "Philippines",
+    "Brunei",
+    "East Timor",
+  ];
+
   return (
-    <Fragment>
+    <>
+      <h1>Country List</h1>
       <ul className="list-group">
-        <li className="list-group-item active" aria-current="true">
-          An active item
-        </li>
-        <li className="list-group-item">A second item</li>
-        <li className="list-group-item">A third item</li>
-        <li className="list-group-item">A fourth item</li>
-        <li className="list-group-item">And a fifth one</li>
+        {countries.map((country, index) => (
+          <li className="list-group-item" key={index}>
+            {country}
+          </li>
+        ))}
       </ul>
-    </Fragment>
+    </>
   );
 }
 
