@@ -1,4 +1,4 @@
-import { MouseEvent } from "react";
+import { useState } from "react";
 
 function ListGroup() {
   let countries = [
@@ -15,7 +15,8 @@ function ListGroup() {
     "East Timor",
   ];
 
-  const handleClick = (event: MouseEvent) => console.log(event.target);
+  let [selectedIndex, setSelectedIndex] = useState(-1);
+
   return (
     <>
       <h1>Country List</h1>
@@ -23,9 +24,20 @@ function ListGroup() {
       <ul className="list-group">
         {countries.map(
           (
-            country // <-- map() is a function that returns an array
+            country, // <-- map() is a function that returns an array
+            index
           ) => (
-            <li className="list-group-item" key={country} onClick={handleClick}>
+            <li
+              className={
+                selectedIndex === index
+                  ? "list-group-item active"
+                  : "list-group-item"
+              }
+              key={country}
+              onClick={() => {
+                setSelectedIndex(index);
+              }}
+            >
               {country}
             </li>
           )
