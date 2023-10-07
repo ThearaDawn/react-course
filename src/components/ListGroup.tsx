@@ -1,25 +1,16 @@
 import { useState } from "react";
 
-function ListGroup() {
-  let countries = [
-    "Cambodia",
-    "Thailand",
-    "Vietnam",
-    "Laos",
-    "Myanmar",
-    "Malaysia",
-    "Singapore",
-    "Indonesia",
-    "Philippines",
-    "Brunei",
-    "East Timor",
-  ];
+interface Props {
+  countries: string[];
+  heading: string;
+}
 
+function ListGroup({ countries, heading }: Props) {
   let [selectedIndex, setSelectedIndex] = useState(-1);
 
   return (
     <>
-      <h1>Country List</h1>
+      <h1>{heading}</h1>
       {countries.length === 0 && <p>No Country Found</p>}
       <ul className="list-group">
         {countries.map(
